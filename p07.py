@@ -2,7 +2,7 @@ def first_n_primes(n):
     primes = [2]
     num = 3
     counter = 1
-    while counter < n:
+    while num < n:
         fault = 0
         for p in primes:
             if p > int(num**0.5)+1:
@@ -17,6 +17,3 @@ def first_n_primes(n):
     return primes
 
 print first_n_primes(int(raw_input("")))[-1]
-
-
-

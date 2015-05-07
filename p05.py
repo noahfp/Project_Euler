@@ -13,4 +13,4 @@ def lcm(col):
         val = val*num/gcd(val,num)
     return val
 
-print lcm(range(1,20))
+print lcm(range(1,21))
