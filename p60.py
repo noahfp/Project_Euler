@@ -1,13 +1,24 @@
-def isprime(x):
+def isprimepre(x):
     for i in range(2, int(x**(0.5)) + 1):
         if x % i == 0:
             return 0
     return 1
 
-LIMIT = 100000
+LIMIT = 10000
 
-primes = [x for x in range(2,LIMIT) if isprime(x)]
+primes = [x for x in range(2,LIMIT) if isprimepre(x)]
 nps = len(primes)
+
+primedict = dict({0: 0})
+
+for i in range(LIMIT):
+    primedict[i + 1] = int(i+1 in primes)
+
+def isprime(x):
+    if not x in primedict:
+        primedict[x] = isprimepre(x)
+    return primedict[x]
+
 
 for a in range(nps):
     i = primes[a]
@@ -23,6 +34,6 @@ for a in range(nps):
                             for e in range(d+1, nps):
                                 m = primes[e]
                                 if isprime(int(str(i)+str(m))) and isprime(int(str(j)+str(m))) and isprime(int(str(k)+str(m))) and isprime(int(str(l)+str(m))) and isprime(int(str(m)+str(i))) and isprime(int(str(m)+str(j))) and isprime(int(str(m)+str(k))) and isprime(int(str(m)+str(l))):
-                                    print i+j+k+l+m
+                                    print i+j+k+l+m, i, j, k, l, m
 
 
