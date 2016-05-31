@@ -18,4 +18,4 @@ for cap in xrange(2, (limit+1)):
 			s = s + sums[n-i*cap][cap-1]
 		sums[n][cap] = s
 
-print sums[100][99]
+print sums[limit][limit-1]

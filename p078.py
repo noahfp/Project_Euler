@@ -18,4 +18,7 @@ for cap in xrange(2, (limit+1)):
 			s = s + sums[n-i*cap][cap-1]
 		sums[n][cap] = s
 
-print sums[100][99]
+for i in xrange(1,limit+1):
+	if (sums[i][i-1] + 1) % 1000000 == 0:
+		print i
+		break
