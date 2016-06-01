@@ -1,24 +1,30 @@
 import math
+from sys import exit
 
+# never mind the old shit, a more intelligent approach is required (generating functions!)
 
-limit = 100 
+coins = {0:1}
+n = 1
 
-sums = []
-for i in xrange(limit+1):
-	sums.append([0]*(limit+1))
+exit
 
-sums[0] = [1]*limit
-for i in xrange((limit+1)):
-	sums[i][1] = 1
-
-for cap in xrange(2, (limit+1)):
-	for n in xrange(1, (limit+1)):
-		s = 0
-		for i in xrange(0, n/cap + 1):
-			s = s + sums[n-i*cap][cap-1]
-		sums[n][cap] = s
-
-for i in xrange(1,limit+1):
-	if (sums[i][i-1] + 1) % 1000000 == 0:
-		print i
+while n < 1000000:
+	i = 1
+	s = 0
+	while True: 
+		p = i*(3*i-1)/2
+		if p > n:
+			break
+		s += coins[n-p]*(2*(i%2)-1)
+		p = i*(3*i+1)/2
+		if p > n:
+			break
+		s += coins[n-p]*(2*(i%2)-1)
+		i += 1
+	coins[n] = s
+	if s % 1000000 == 0:
+		print n
 		break
+	n += 1
+
+
