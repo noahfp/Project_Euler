@@ -1,12 +1,9 @@
 import math
-from sys import exit
 
 # never mind the old shit, a more intelligent approach is required (generating functions!)
 
 coins = {0:1}
 n = 1
-
-exit
 
 while n < 1000000:
 	i = 1
